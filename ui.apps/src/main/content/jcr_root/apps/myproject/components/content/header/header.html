@@ -1,6 +1,9 @@
-<p data-sly-test="${properties.text}">Text property: ${properties.text}</p>
+<div class="cmp-header" data-sly-use.header="com.aem.myproject.core.models.Header">
+<h2 data-sly-test="${header.title}">${header.title}</h2>
+<p data-sly-test="${header.text}">${header.text}</p>
+<img data-sly-test=${header.fileReference} src="${header.fileReference}" alt ="image"/>
+<button data-sly-element="${header.link ? 'a' : 'button'}" class="cmp-button" href="${header.link}">
+    <span data-sly-test="${header.buttonTitle}" class="cmp-button__text">${header.buttonTitle}</span>
+</button>
+</div>
 
-<pre data-sly-use.hello="com.aem.mysite.core.models.HelloWorldModel">
-HelloWorldModel says:
-${hello.message}
-</pre>
