@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" jcr:primaryType="sling:OsgiConfig" 
+          url="http://api.openweathermap.org/data/2.5/weather"
+          appId="3bbe73755de6d51a2b0c9d546cb4d95a"/>

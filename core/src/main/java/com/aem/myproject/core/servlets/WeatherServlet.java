@@ -15,8 +15,9 @@
 	*/
 package com.aem.myproject.core.servlets;
 
+import com.aem.myproject.core.entity.WeatherReport;
 import com.aem.myproject.core.services.WeatherService;
-import com.day.cq.commons.jcr.JcrConstants;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -30,10 +31,11 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
-@Component(service=Servlet.class,
-				property={
+@Component(service = Servlet.class,
+				property = {
 								"sling.servlet.methods=" + HttpConstants.METHOD_GET,
-								"sling.servlet.resourceTypes="+ "mysite/components/structure/page",
+								"sling.servlet.resourceTypes=" + "mysite/components/structure/page",
+								"sling.servlet.paths=/bin/weather/api",
 								"sling.servlet.extensions=" + "txt"
 				})
 @ServiceDescription("Weather Servlet")
@@ -48,9 +50,11 @@ public class WeatherServlet extends SlingSafeMethodsServlet {
 				protected void doGet(final SlingHttpServletRequest request,
 																									final SlingHttpServletResponse response) throws ServletException, IOException {
 								final Resource resource = request.getResource();
-								
+								WeatherReport weatherReport = weatherService.getWeatherReport();
+								ObjectMapper objectMapper = new ObjectMapper();
+								String result = objectMapper.writeValueAsString(weatherReport);
 								
 								response.setContentType("application/json");
-								response.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+								response.getWriter().write(result);
 				}
 }
