@@ -218,5 +218,11 @@ Bundle-DocURL:
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-bundle</artifactId>
+            <version>4.4.2</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

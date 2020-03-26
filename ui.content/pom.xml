@@ -52,6 +52,7 @@
                     <name>aem-myproject.ui.content</name>
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>>
                     </properties>
@@ -62,6 +63,13 @@
                             <version>0.0.1-SNAPSHOT</version>
                         </dependency>
                     </dependencies>
+                    <subPackages>
+                        <subPackage>
+                            <groupId>com.adobe.acs</groupId>
+                            <artifactId>acs-aem-commons-content</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+                    </subPackages>
                 </configuration>
             </plugin>
             <plugin>
@@ -95,6 +103,13 @@
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-content</artifactId>
+            <version>4.4.2</version>
+            <type>content-package</type>
+            <classifier>min</classifier> <!-- optional, see below -->
         </dependency>
     </dependencies>
 </project>

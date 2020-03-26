@@ -40,8 +40,7 @@ import java.io.IOException;
 @ServiceDescription("Weather Servlet")
 public class WeatherServlet extends SlingSafeMethodsServlet {
 				
-				private static final long serialVersionUID = 1L;
-				
+				private static final String CITY_ID = "cityId";
 				@Reference
 				private transient WeatherService weatherService;
 				
@@ -49,7 +48,7 @@ public class WeatherServlet extends SlingSafeMethodsServlet {
 				protected void doGet(final SlingHttpServletRequest request,
 																									final SlingHttpServletResponse response) throws IOException {
 								final Resource resource = request.getResource();
-								String cityId = resource.getValueMap().get("cityId", String.class);
+								String cityId = resource.getValueMap().get(CITY_ID, String.class);
 								if (cityId == null || cityId.equals("")) {
 												response.sendError(HttpStatus.SC_BAD_REQUEST, "City Id Not Present");
 												return;
