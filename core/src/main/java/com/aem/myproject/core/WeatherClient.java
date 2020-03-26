@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class WeatherClient {
+				
 				private static final Logger LOG = LoggerFactory.getLogger(WeatherClient.class);
 				private String appId;
 				
@@ -23,16 +24,16 @@ public class WeatherClient {
 								this.appId = appId;
 				}
 				
-				public String getWeatherResponse(String url,String cityId)throws IOException{
-								return getRequest(url,cityId);
+				public String getWeatherResponse(String url, String cityId) throws IOException {
+								return getRequest(url, cityId);
 				}
 				
-				private String getRequest(String url,String cityId) throws IOException {
+				private String getRequest(String url, String cityId) throws IOException {
 								HttpGet httpGet = null;
 								try {
 												URIBuilder uriBuilder = new URIBuilder(url);
-												uriBuilder.setParameter("id",cityId);
-												uriBuilder.setParameter("appid",appId);
+												uriBuilder.setParameter("id", cityId);
+												uriBuilder.setParameter("appid", appId);
 												
 												httpGet = new HttpGet(uriBuilder.build());
 								} catch (URISyntaxException e) {

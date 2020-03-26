@@ -1,39 +1,37 @@
-<div id="weather-widget" class="weather-widget">
-    <h2 class="weather-widget__city-name">Weather in Amsterdam, NL</h2>
-    <h3 class="weather-widget__temperature"><img class="weather-widget__img" src="https://openweathermap.org/img/wn/03n@2x.png" alt="Weather Amsterdam , NL" width="50" height="50">5 °C</h3>
-    <p class="weather-widget__main">scattered clouds</p>
-    <p>00:22 Mar 25
-        <button type="button" class="weather-widget__link" data-toggle="modal" data-target="#modal-wrong-window">Wrong data?</button>
-    </p>
+<div id="weather-widget" class="weather-widget" data-resource-path="${resource.path}">
+    <h2 class="weather-widget__city-name"></h2>
+    <h3 class="weather-widget__temperature"></h3>
+    <p class="weather-widget__description"></p>
+    <p id="weather-widget-time"></p>
     <table class="weather-widget__items">
         <tbody>
         <tr class="weather-widget__item">
             <td>Wind</td>
-            <td id="weather-widget-wind">Gentle Breeze, 4.1 m/s, East-southeast ( 120 )</td>
+            <td id="weather-widget-wind"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Cloudiness</td>
-            <td id="weather-widget-cloudiness">Scattered clouds</td>
+            <td id="weather-widget-cloudiness"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Pressure</td>
-            <td>1028 hpa</td>
+            <td id="weather-widget-pressure"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Humidity</td>
-            <td>41 %</td>
+            <td id="weather-widget-humidity"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Sunrise</td>
-            <td>06:30 </td>
+            <td id="weather-widget-sunrise"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Sunset</td>
-            <td>19:02 </td>
+            <td id="weather-widget-sunset"></td>
         </tr>
         <tr class="weather-widget__item">
             <td>Geo coords</td>
-            <td><a href="/weathermap?zoom=8&amp;lat=52.37&amp;lon=4.89" class="weather-widget__link">[<span id="wrong-data-lat">52.37</span>,&nbsp;<span id="wrong-data-lon">4.89</span>]</a></td>
+            <td id="weather-widget-coords">[<span id="wrong-data-lat"></span>,&nbsp;<span id="wrong-data-lon"></span>]</td>
         </tr>
         </tbody>
     </table>

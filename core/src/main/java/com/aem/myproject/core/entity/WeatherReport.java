@@ -1,129 +1,121 @@
 package com.aem.myproject.core.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherReport {
-				Coord coord;
-				List<Object> weather = new ArrayList<>();
-				private String base;
-				Main main;
-				private float visibility;
-				Wind wind;
-				Clouds clouds;
-				private float dt;
-				Sys sys;
-				private float timezone;
-				private float id;
-				private String name;
-				private float cod;
+				private String countryCode;
+				private String cityName;
+				private String currentDateTime;
+				private float windSpeed;
+				private String temperature;
+				private String pressure;
+				private String humidity;
+				private String weatherType;
+				private String weatherDescription;
+				private String sunrise;
+				private String sunset;
+				private float latitude;
+				private float longitude;
 				
-				public Coord getCoord() {
-								return coord;
+				public String getCountryCode() {
+								return countryCode;
 				}
 				
-				public void setCoord(Coord coord) {
-								this.coord = coord;
+				public void setCountryCode(String countryCode) {
+								this.countryCode = countryCode;
 				}
 				
-				public List<Object> getWeather() {
-								return weather;
+				public String getCityName() {
+								return cityName;
 				}
 				
-				public void setWeather(List<Object> weather) {
-								this.weather = weather;
+				public void setCityName(String cityName) {
+								this.cityName = cityName;
 				}
 				
-				public String getBase() {
-								return base;
+				public String getTemperature() {
+								return temperature;
 				}
 				
-				public void setBase(String base) {
-								this.base = base;
+				public void setTemperature(String temperature) {
+								this.temperature = temperature;
 				}
 				
-				public Main getMain() {
-								return main;
+				public String getPressure() {
+								return pressure;
 				}
 				
-				public void setMain(Main main) {
-								this.main = main;
+				public void setPressure(String pressure) {
+								this.pressure = pressure;
 				}
 				
-				public float getVisibility() {
-								return visibility;
+				public String getHumidity() {
+								return humidity;
 				}
 				
-				public void setVisibility(float visibility) {
-								this.visibility = visibility;
+				public void setHumidity(String humidity) {
+								this.humidity = humidity;
 				}
 				
-				public Wind getWind() {
-								return wind;
+				public String getWeatherType() {
+								return weatherType;
 				}
 				
-				public void setWind(Wind wind) {
-								this.wind = wind;
+				public void setWeatherType(String weatherType) {
+								this.weatherType = weatherType;
 				}
 				
-				public Clouds getClouds() {
-								return clouds;
+				public String getWeatherDescription() {
+								return weatherDescription;
 				}
 				
-				public void setClouds(Clouds clouds) {
-								this.clouds = clouds;
+				public void setWeatherDescription(String weatherDescription) {
+								this.weatherDescription = weatherDescription;
 				}
 				
-				public float getDt() {
-								return dt;
+				public String getSunrise() {
+								return sunrise;
 				}
 				
-				public void setDt(float dt) {
-								this.dt = dt;
+				public void setSunrise(String sunrise) {
+								this.sunrise = sunrise;
 				}
 				
-				public Sys getSys() {
-								return sys;
+				public String getSunset() {
+								return sunset;
 				}
 				
-				public void setSys(Sys sys) {
-								this.sys = sys;
+				public void setSunset(String sunset) {
+								this.sunset = sunset;
 				}
 				
-				public float getTimezone() {
-								return timezone;
+				public float getLatitude() {
+								return latitude;
 				}
 				
-				public void setTimezone(float timezone) {
-								this.timezone = timezone;
+				public void setLatitude(float latitude) {
+								this.latitude = latitude;
 				}
 				
-				public float getId() {
-								return id;
+				public float getLongitude() {
+								return longitude;
 				}
 				
-				public void setId(float id) {
-								this.id = id;
+				public void setLongitude(float longitude) {
+								this.longitude = longitude;
 				}
 				
-				public String getName() {
-								return name;
+				public String getCurrentDateTime() {
+								return currentDateTime;
 				}
 				
-				public void setName(String name) {
-								this.name = name;
+				public void setCurrentDateTime(String currentDateTime) {
+								this.currentDateTime = currentDateTime;
 				}
 				
-				public float getCod() {
-								return cod;
+				public float getWindSpeed() {
+								return windSpeed;
 				}
 				
-				public void setCod(float cod) {
-								this.cod = cod;
+				public void setWindSpeed(float windSpeed) {
+								this.windSpeed = windSpeed;
 				}
 }

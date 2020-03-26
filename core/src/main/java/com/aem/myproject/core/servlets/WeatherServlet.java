@@ -18,6 +18,7 @@ package com.aem.myproject.core.servlets;
 import com.aem.myproject.core.entity.WeatherReport;
 import com.aem.myproject.core.services.WeatherService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -28,15 +29,13 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 
 import javax.servlet.Servlet;
-import javax.servlet.ServletException;
 import java.io.IOException;
 
 @Component(service = Servlet.class,
 				property = {
 								"sling.servlet.methods=" + HttpConstants.METHOD_GET,
-								"sling.servlet.resourceTypes=" + "mysite/components/structure/page",
-								"sling.servlet.paths=/bin/weather/api",
-								"sling.servlet.extensions=" + "txt"
+								"sling.servlet.resourceTypes=" + "myproject/components/content/weatherreport",
+								"sling.servlet.extensions=" + "json"
 				})
 @ServiceDescription("Weather Servlet")
 public class WeatherServlet extends SlingSafeMethodsServlet {
@@ -48,11 +47,16 @@ public class WeatherServlet extends SlingSafeMethodsServlet {
 				
 				@Override
 				protected void doGet(final SlingHttpServletRequest request,
-																									final SlingHttpServletResponse response) throws ServletException, IOException {
+																									final SlingHttpServletResponse response) throws IOException {
 								final Resource resource = request.getResource();
-								WeatherReport weatherReport = weatherService.getWeatherReport();
+								String cityId = resource.getValueMap().get("cityId", String.class);
+								if (cityId == null || cityId.equals("")) {
+												response.sendError(HttpStatus.SC_BAD_REQUEST, "City Id Not Present");
+												return;
+								}
+								WeatherReport weather = weatherService.getWeatherReport(cityId.trim());
 								ObjectMapper objectMapper = new ObjectMapper();
-								String result = objectMapper.writeValueAsString(weatherReport);
+								String result = objectMapper.writeValueAsString(weather);
 								
 								response.setContentType("application/json");
 								response.getWriter().write(result);

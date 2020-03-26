@@ -6,11 +6,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sys {
+				
 				private float type;
 				private float id;
 				private String country;
-				private float sunrise;
-				private float sunset;
+				private long sunrise;
+				private long sunset;
 				
 				public float getType() {
 								return type;
@@ -36,19 +37,19 @@ public class Sys {
 								this.country = country;
 				}
 				
-				public float getSunrise() {
+				public long getSunrise() {
 								return sunrise;
 				}
 				
-				public void setSunrise(float sunrise) {
+				public void setSunrise(long sunrise) {
 								this.sunrise = sunrise;
 				}
 				
-				public float getSunset() {
+				public long getSunset() {
 								return sunset;
 				}
 				
-				public void setSunset(float sunset) {
+				public void setSunset(long sunset) {
 								this.sunset = sunset;
 				}
 }
