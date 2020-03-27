@@ -109,7 +109,7 @@
             <artifactId>acs-aem-commons-content</artifactId>
             <version>4.4.2</version>
             <type>content-package</type>
-            <classifier>min</classifier> <!-- optional, see below -->
+            <classifier>min</classifier>
         </dependency>
     </dependencies>
 </project>

@@ -7,6 +7,7 @@
         cq:template="/conf/myproject/settings/wcm/templates/content-page-template"
         jcr:primaryType="cq:PageContent"
         jcr:title="en"
+        sling:alias="en"
         sling:resourceType="myproject/components/structure/page"
         pageTitle="New Project"
         socialMedia="[facebook]">
