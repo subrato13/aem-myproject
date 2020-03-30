@@ -47,6 +47,8 @@
 
                         <!-- Immutable context-aware configurations -->
                         <filter><root>/apps/settings</root></filter>
+                        <filter><root>/etc/acs-commons/lists/water-heights</root></filter>
+                        <filter><root>/home/users/system/myproject</root></filter>
 
                     </filters>
                 </configuration>
