@@ -11,7 +11,7 @@ This project has two locales (en,es). It has following
      As part of this component you can configure city id in component dialog
      List of city ID city.list.json.gz can be downloaded from here http://bulk.openweathermap.org/sample/ 
  3. Water heights in canal api
-     a. Location where author can add Date and height : http://localhost:4502/generic-lists.html/etc/acs-commons/lists
+     a. Location where author can add Date and height : http://localhost:4502/generic-lists.html/etc/acs-commons/lists , title:date field, value: height field
      b. Api :
         Api to get last entries : http://<host:port>/bin/waterheights/list.json?limit=20
         Api to get water heights greater than x : http://<host:port>/bin/waterheights/list.json?x=20
