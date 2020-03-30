@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Dialog"
+          title="Pass Validity Item"
+          xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <datefield
+                jcr:primaryType="cq:Widget"
+                fieldDescription="Validity Period Description of the Pass"
+                fieldLabel="Date field"
+                name="./datefield"
+                xtype="textfield"/>
+        <height
+                jcr:primaryType="cq:Widget"
+                fieldDescription="Validity Period of the Pass"
+                fieldLabel="Height in cm"
+                name="./height"
+                xtype="textfield"/>
+    </items>
+</jcr:root>

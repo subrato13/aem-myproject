@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:SystemUser"
+    jcr:uuid="b362bbe4-a5f6-3f49-a58c-2a9458452d90"
+    rep:authorizableId="water-heights-service"
+    rep:principalName="water-heights-service"/>

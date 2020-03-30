@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:cloudserviceconfigs="[/etc/cloudservices/translation/default_translation,/etc/cloudservices/msft-translation/msft_trial]"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2020-03-24T22:39:20.066+01:00"
+        cq:lastModifiedBy="translation-job-service"
+        cq:lastTranslationUpdate="{Date}2020-03-24T22:39:20.066+01:00"
+        cq:template="/conf/myproject/settings/wcm/templates/content-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Spanish"
+        sling:alias="en"
+        sling:resourceType="myproject/components/structure/page"
+        pageTitle="New Project"
+        socialMedia="[facebook]">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <header
+                    jcr:created="{Date}2020-03-24T18:12:31.262+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-03-24T19:40:13.016+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="myproject/components/content/header"
+                    buttonTitle="Submit"
+                    fileReference="/content/dam/wknd/en/los-angeles/skateboard-hero.jpg"
+                    link="/content/myproject/us/es"
+                    text="This is the Sample Header component. It is created for the assignment"
+                    title="Header Component"/>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+</jcr:root>
