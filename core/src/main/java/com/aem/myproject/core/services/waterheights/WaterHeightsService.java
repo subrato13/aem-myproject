@@ -22,6 +22,7 @@ import java.util.*;
 public class WaterHeightsService {
 				
 				private static final Logger LOG = LoggerFactory.getLogger(WaterHeightsService.class);
+				private static final String SERVICE_USER="water-heights-service";
 				
 				private static final String WATER_HEIGHTS_PATH = "/etc/acs-commons/lists/water-heights";
 				
@@ -72,7 +73,7 @@ public class WaterHeightsService {
 				
 				private ResourceResolver getResourceResolver(final ResourceResolverFactory resourceFactory) {
 								final Map<String, Object> param = new HashMap<>();
-								param.put(ResourceResolverFactory.SUBSERVICE, "water-heights-service");
+								param.put(ResourceResolverFactory.SUBSERVICE, SERVICE_USER);
 								ResourceResolver resourceResolver = null;
 								try {
 												resourceResolver = resourceFactory.getServiceResourceResolver(param);

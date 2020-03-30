@@ -4,6 +4,5 @@
     <filter root="/content/myproject" mode="merge"/>
     <filter root="/content/dam/myproject" mode="merge"/>
     <filter root="/content/experience-fragments/myproject" mode="merge"/>
-    <filter root="/home/users/system/myproject" mode="merge"/>
     <filter root="/etc/acs-commons/lists/water-heights" mode="merge"/>
 </workspaceFilter>
