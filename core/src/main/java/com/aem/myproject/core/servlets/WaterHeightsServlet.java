@@ -3,6 +3,8 @@ package com.aem.myproject.core.servlets;
 import com.aem.myproject.core.services.waterheights.WaterHeightsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
@@ -25,7 +27,7 @@ import static org.apache.commons.lang.CharEncoding.UTF_8;
 public class WaterHeightsServlet extends SlingSafeMethodsServlet {
 				
 				@Reference
-				private WaterHeightsService waterHeightsService;
+				private transient WaterHeightsService waterHeightsService;
 				
 				private ObjectMapper objectMapper = new ObjectMapper();
 				
@@ -34,12 +36,17 @@ public class WaterHeightsServlet extends SlingSafeMethodsServlet {
 								String limit = request.getParameter("limit");
 								String waterHeight = request.getParameter("x");
 								List<ObjectNode> itemList = new ArrayList<>();
-								if (limit != null && !limit.trim().equals("")) {
-												itemList = waterHeightsService.getWaterHeightsByLimit(Integer.parseInt(limit));
+								
+								if(areParamsInvalid(limit,waterHeight)){
+												response.sendError(HttpStatus.SC_BAD_REQUEST,"Invalid Request");
+												return;
+								}
+								if (StringUtils.isNotBlank(limit)) {
+												itemList = waterHeightsService.getWaterHeightsByLimit(Integer.parseInt(limit.trim()));
 								}
 								
-								if (waterHeight != null && !waterHeight.trim().equals("")) {
-												itemList = waterHeightsService.getWaterHeightsByHeight(Integer.parseInt(waterHeight));
+								if (StringUtils.isNotBlank(waterHeight)) {
+												itemList = waterHeightsService.getWaterHeightsByHeight(Integer.parseInt(waterHeight.trim()));
 								}
 								
 								String result = objectMapper.writeValueAsString(itemList);
@@ -47,5 +54,10 @@ public class WaterHeightsServlet extends SlingSafeMethodsServlet {
 								response.setCharacterEncoding(UTF_8);
 								response.setHeader("Cache-Control", "no-store");
 								response.getWriter().write(result);
+				}
+				
+				private boolean areParamsInvalid(String limit, String waterHeight){
+								return StringUtils.isBlank(limit) && StringUtils.isBlank(waterHeight) 
+												|| StringUtils.isNotBlank(limit) && StringUtils.isNotBlank(waterHeight);
 				}
 }

@@ -5,7 +5,6 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -22,7 +21,7 @@ import java.util.*;
 public class WaterHeightsService {
 				
 				private static final Logger LOG = LoggerFactory.getLogger(WaterHeightsService.class);
-				private static final String SERVICE_USER="water-heights-service";
+				private static final String SERVICE_USER = "water-heights-service";
 				
 				private static final String WATER_HEIGHTS_PATH = "/etc/acs-commons/lists/water-heights";
 				
@@ -31,6 +30,13 @@ public class WaterHeightsService {
 				
 				private ObjectMapper objectMapper = new ObjectMapper();
 				
+				/**
+					* Get Water heights by limit
+					*
+					* @param limit no of results
+					*
+					* @return
+					*/
 				public List<ObjectNode> getWaterHeightsByLimit(int limit) {
 								List<GenericList.Item> itemList = getWaterHeightList();
 								List<ObjectNode> tempList = new ArrayList<>();
@@ -46,6 +52,11 @@ public class WaterHeightsService {
 								return tempList;
 				}
 				
+				/**
+					* Get Water level greater by heights
+					* @param height height 
+					* @return
+					*/
 				public List<ObjectNode> getWaterHeightsByHeight(int height) {
 								List<GenericList.Item> itemList = getWaterHeightList();
 								List<ObjectNode> tempList = new ArrayList<>();
@@ -62,7 +73,7 @@ public class WaterHeightsService {
 				
 				private List<GenericList.Item> getWaterHeightList() {
 								ResourceResolver resourceResolver = getResourceResolver(resourceResolverFactory);
-								PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+								PageManager pageManager = resourceResolver!= null ? resourceResolver.adaptTo(PageManager.class) : null;
 								Page pageList = pageManager != null ? pageManager.getPage(WATER_HEIGHTS_PATH) : null;
 								GenericList genericList = pageList != null ? pageList.adaptTo(GenericList.class) : null;
 								List<GenericList.Item> itemList = genericList != null ? genericList.getItems() : Collections.emptyList();
