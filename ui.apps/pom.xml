@@ -73,6 +73,21 @@
                             <artifactId>aem-myproject.core</artifactId>
                             <target>/apps/myproject/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.commercetools.sdk.jvm.core</groupId>
+                            <artifactId>commercetools-models</artifactId>
+                            <target>/apps/myproject/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.commercetools.sdk.jvm.core</groupId>
+                            <artifactId>commercetools-java-client</artifactId>
+                            <target>/apps/myproject/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.commercetools.sdk.jvm.core</groupId>
+                            <artifactId>commercetools-convenience</artifactId>
+                            <target>/apps/myproject/install</target>
+                        </embedded>
                     </embeddeds>
                     <dependencies>
                         <dependency>

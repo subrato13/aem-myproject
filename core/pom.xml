@@ -224,5 +224,20 @@ Bundle-DocURL:
             <version>4.4.2</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.commercetools.sdk.jvm.core</groupId>
+            <artifactId>commercetools-models</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.commercetools.sdk.jvm.core</groupId>
+            <artifactId>commercetools-java-client</artifactId>
+        </dependency>
+
+        <!-- experimental -->
+        <dependency>
+            <groupId>com.commercetools.sdk.jvm.core</groupId>
+            <artifactId>commercetools-convenience</artifactId>
+        </dependency>
     </dependencies>
 </project>
